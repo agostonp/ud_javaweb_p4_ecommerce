@@ -1,4 +1,4 @@
-package com.example.demo.controllers;
+package com.udacity.jwdnd.ecommerce.controllers;
 
 import java.util.List;
 
@@ -10,12 +10,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.persistence.Cart;
-import com.example.demo.model.persistence.User;
-import com.example.demo.model.persistence.UserOrder;
-import com.example.demo.model.persistence.repositories.CartRepository;
-import com.example.demo.model.persistence.repositories.OrderRepository;
-import com.example.demo.model.persistence.repositories.UserRepository;
+import com.udacity.jwdnd.ecommerce.model.persistence.User;
+import com.udacity.jwdnd.ecommerce.model.persistence.UserOrder;
+import com.udacity.jwdnd.ecommerce.model.persistence.repositories.OrderRepository;
+import com.udacity.jwdnd.ecommerce.model.persistence.repositories.UserRepository;
 
 @RestController
 @RequestMapping("/api/order")

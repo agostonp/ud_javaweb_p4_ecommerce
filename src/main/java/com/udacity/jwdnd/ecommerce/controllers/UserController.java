@@ -1,9 +1,6 @@
-package com.example.demo.controllers;
-
-import java.util.Optional;
+package com.udacity.jwdnd.ecommerce.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,11 +9,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.persistence.Cart;
-import com.example.demo.model.persistence.User;
-import com.example.demo.model.persistence.repositories.CartRepository;
-import com.example.demo.model.persistence.repositories.UserRepository;
-import com.example.demo.model.requests.CreateUserRequest;
+import com.udacity.jwdnd.ecommerce.model.persistence.Cart;
+import com.udacity.jwdnd.ecommerce.model.persistence.User;
+import com.udacity.jwdnd.ecommerce.model.persistence.repositories.CartRepository;
+import com.udacity.jwdnd.ecommerce.model.persistence.repositories.UserRepository;
+import com.udacity.jwdnd.ecommerce.model.requests.CreateUserRequest;
 
 @RestController
 @RequestMapping("/api/user")
