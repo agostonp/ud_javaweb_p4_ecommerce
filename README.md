@@ -2,6 +2,9 @@
 
 In this project, you'll have an opportunity to demonstrate the security and DevOps skills that you learned in this lesson by completing an eCommerce application. You'll start with a template for the complete application, and your goal will be to take this template and add proper authentication and authorization controls so users can only access their data, and that data can only be accessed in a secure way. 
 
+## Credits
+Spring Security with JWT is configured following this article: https://auth0.com/blog/implementing-jwt-authentication-on-spring-boot/
+
 ## Project Template
 First, you'll want to get set up with the template. The template is written in Java using Spring Boot, Hibernate ORM, and the H2 database. H2 is an in memory database, so if you need to retry something, every application startup is a fresh copy.
 

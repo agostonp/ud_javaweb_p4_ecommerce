@@ -1,0 +1,197 @@
+{
+	"info": {
+		"_postman_id": "408cb908-d30e-4502-8c9b-ec979bb8dcae",
+		"name": "Udacity JWDND P4 Ecommerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"sanyi\",\r\n    \"password\": \"almaafa\",\r\n    \"confirmPassword\": \"almaafa\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"sanyi\",\r\n    \"password\": \"almaafa\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzYW55aSIsImV4cCI6MTYwMDUyNDM0NH0.mMDd6rWVGepa6mM9g7BXypnxcMjHtA--fnGTbFHVx8pVVjpPkKsR08hQTZuQXp1q6T1ThG6S-fF5IAZlfmsH-w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user/sanyi",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"sanyi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add to Cart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzYW55aSIsImV4cCI6MTYwMDUyNDM0NH0.mMDd6rWVGepa6mM9g7BXypnxcMjHtA--fnGTbFHVx8pVVjpPkKsR08hQTZuQXp1q6T1ThG6S-fF5IAZlfmsH-w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"sanyi\",\r\n\t\"itemId\": 1,\r\n\t\"quantity\": 5\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/cart/addToCart",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"cart",
+						"addToCart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Submit Order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzYW55aSIsImV4cCI6MTYwMDUyNDM0NH0.mMDd6rWVGepa6mM9g7BXypnxcMjHtA--fnGTbFHVx8pVVjpPkKsR08hQTZuQXp1q6T1ThG6S-fF5IAZlfmsH-w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/order/submit/sanyi",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"order",
+						"submit",
+						"sanyi"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
