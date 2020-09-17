@@ -6,12 +6,8 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 import com.udacity.jwdnd.ecommerce.model.persistence.Cart;
-import com.udacity.jwdnd.ecommerce.model.persistence.Item;
 import com.udacity.jwdnd.ecommerce.model.persistence.User;
 import com.udacity.jwdnd.ecommerce.model.persistence.repositories.CartRepository;
 import com.udacity.jwdnd.ecommerce.model.persistence.repositories.ItemRepository;
@@ -36,13 +32,8 @@ public class CartControllerTest {
     public void initEachTest() {
         userRepository = mock(UserRepository.class);
         cartRepository = mock(CartRepository.class);
-        itemRepository = mock(ItemRepository.class);
+        itemRepository = ItemControllerTest.initMockItemRepository();
         cartController = new CartController(userRepository, cartRepository, itemRepository);
-
-        List<Item> itemList = generateTestItemList(3);
-        when(itemRepository.findById(itemList.get(0).getId())).thenReturn(Optional.of(generateTestItem(0)));
-        when(itemRepository.findById(itemList.get(1).getId())).thenReturn(Optional.of(generateTestItem(1)));
-        when(itemRepository.findById(itemList.get(2).getId())).thenReturn(Optional.of(generateTestItem(2)));
     }
 
     @Test
@@ -90,29 +81,6 @@ public class CartControllerTest {
         assertEquals(inputCartRequest.getUsername(), updatedCart.getUser().getUsername());
         BigDecimal total = new BigDecimal("790.03");
         assertEquals(0, total.compareTo(updatedCart.getTotal()));
-    }
-
-    private Item generateTestItem(int id) {
-        Item item;
-        switch(id) {
-            case 0:
-                item = new Item(Long.valueOf(id), "screwdriver", new BigDecimal("890.00"), "Mighty screwdriver of the ages.");
-                break;
-            case 1:
-                item = new Item(Long.valueOf(id), "screwdriver", new BigDecimal("790.03"), "A second mighty screwdriver of the ages.");
-                break;
-            default:
-                item = new Item(Long.valueOf(id), "hammer", new BigDecimal("1199.99"), "This text describes the hammer.");
-        }
-        return item;
-    }
-
-    private List<Item> generateTestItemList(int length) {
-        List<Item> list = new ArrayList<>();
-        for(int i=0; i < length; i++) {
-            list.add(generateTestItem(i));
-        }
-        return list;
     }
 
     private User generateTestUser() {

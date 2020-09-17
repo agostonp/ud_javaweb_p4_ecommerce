@@ -27,7 +27,7 @@ public class ItemControllerTest {
     
     @BeforeEach
     public void initEachTest() {
-        itemRepository = mock(ItemRepository.class);
+        itemRepository = initMockItemRepository();
         itemController = new ItemController(itemRepository);
     }
 
@@ -51,7 +51,6 @@ public class ItemControllerTest {
     @Test
     public void getItemById() {
         Item expectedItem = generateTestItem(0);
-        when(itemRepository.findById(expectedItem.getId())).thenReturn(Optional.of(generateTestItem(0)));
         ResponseEntity<Item> response = itemController.getItemById(expectedItem.getId());
         assertNotNull(response);
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -80,26 +79,38 @@ public class ItemControllerTest {
         assertEquals(expectedItemList.get(0).getDescription(), foundItemList.get(0).getDescription());
     }
 
-    private Item generateTestItem(int id) {
+
+    public static Item generateTestItem(int id) {
         Item item;
         switch(id) {
             case 0:
-                item = new Item(Long.valueOf(id), "screwdriver", new BigDecimal(890.00), "Mighty screwdriver of the ages.");
+                item = new Item(Long.valueOf(id), "screwdriver", new BigDecimal("890.00"), "Mighty screwdriver of the ages.");
                 break;
             case 1:
-                item = new Item(Long.valueOf(id), "screwdriver", new BigDecimal(790.00), "A second mighty screwdriver of the ages.");
+                item = new Item(Long.valueOf(id), "screwdriver", new BigDecimal("790.03"), "A second mighty screwdriver of the ages.");
                 break;
             default:
-                item = new Item(Long.valueOf(id), "hammer", new BigDecimal(1199.99), "This text describes the hammer.");
+                item = new Item(Long.valueOf(id), "hammer", new BigDecimal("1199.99"), "This text describes the hammer.");
         }
         return item;
     }
 
-    private List<Item> generateTestItemList(int length) {
+    public static List<Item> generateTestItemList(int length) {
         List<Item> list = new ArrayList<>();
         for(int i=0; i < length; i++) {
             list.add(generateTestItem(i));
         }
         return list;
+    }
+
+    public static ItemRepository initMockItemRepository() {
+        ItemRepository itemRepository = mock(ItemRepository.class);
+        
+        List<Item> itemList = generateTestItemList(3);
+        for(int i=0; i < 3; i++) {
+            when(itemRepository.findById(itemList.get(i).getId())).thenReturn(Optional.of(generateTestItem(i)));
+        }
+
+        return itemRepository;
     }
 }
