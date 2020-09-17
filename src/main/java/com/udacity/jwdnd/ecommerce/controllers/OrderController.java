@@ -2,7 +2,6 @@ package com.udacity.jwdnd.ecommerce.controllers;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,12 +19,13 @@ import com.udacity.jwdnd.ecommerce.model.persistence.repositories.UserRepository
 public class OrderController {
 	
 	
-	@Autowired
-	private UserRepository userRepository;
-	
-	@Autowired
-	private OrderRepository orderRepository;
-	
+	private final UserRepository userRepository;
+	private final OrderRepository orderRepository;
+
+	public OrderController(UserRepository userRepository, OrderRepository orderRepository) {
+		this.userRepository = userRepository;
+		this.orderRepository = orderRepository;
+	}
 	
 	@PostMapping("/submit/{username}")
 	public ResponseEntity<UserOrder> submit(@PathVariable String username) {
