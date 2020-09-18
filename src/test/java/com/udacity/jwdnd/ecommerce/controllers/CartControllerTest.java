@@ -74,6 +74,7 @@ public class CartControllerTest {
         assertEquals(HttpStatus.OK, removeResponse.getStatusCode());
         Cart updatedCart = removeResponse.getBody();
         assertNotNull(updatedCart);
+        assertEquals(17L, updatedCart.getId());
         assertEquals(inputCartRequest.getQuantity(), updatedCart.getItems().size());
         assertEquals(inputCartRequest.getItemId(), updatedCart.getItems().get(0).getId());
         assertEquals("screwdriver", updatedCart.getItems().get(0).getName());
@@ -86,8 +87,10 @@ public class CartControllerTest {
     private User generateTestUser() {
         Cart cart = new Cart();
         User user = new User(1L, "spiderman", "best passwORD", cart);
-        cart.setId(0L);
+        cart.setId(17L);
         cart.setUser(user);
+        cart.setTotal(null);
+        cart.setItems(null);
         return user;
     }
 
