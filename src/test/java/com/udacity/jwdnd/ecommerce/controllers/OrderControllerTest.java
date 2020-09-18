@@ -2,10 +2,13 @@ package com.udacity.jwdnd.ecommerce.controllers;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.udacity.jwdnd.ecommerce.model.persistence.Cart;
 import com.udacity.jwdnd.ecommerce.model.persistence.User;
@@ -53,6 +56,44 @@ public class OrderControllerTest {
         assertEquals(0, total.compareTo(newOrder.getTotal()));
     }
 
+    @Test
+    public void getOrdersForUser() {
+        List<UserOrder> expectedOrderList = generateTestOrderList();
+        UserOrder expectedOrder = expectedOrderList.get(0);
+
+        when(userRepository.findByUsername(expectedOrderList.get(0).getUser().getUsername()))
+                .thenReturn(expectedOrderList.get(0).getUser());
+        when(orderRepository.findByUser(any(User.class))).thenReturn(generateTestOrderList());
+
+        ResponseEntity<List<UserOrder>> response = orderController.getOrdersForUser(expectedOrderList.get(0).getUser().getUsername());
+
+        assertNotNull(response);
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        List<UserOrder> newOrderList = response.getBody();
+        assertNotNull(newOrderList);
+        assertEquals(expectedOrderList.size(), newOrderList.size());
+
+        UserOrder newOrder = newOrderList.get(0);
+        assertNotNull(newOrder);
+        assertEquals(29L, newOrder.getId());
+        assertEquals(expectedOrder.getItems().size(), newOrder.getItems().size());
+        assertEquals(expectedOrder.getItems().get(0).getId(), newOrder.getItems().get(0).getId());
+        assertEquals("screwdriver", newOrder.getItems().get(1).getName());
+        assertNotNull(newOrder.getUser());
+        assertEquals(expectedOrder.getUser().getUsername(), newOrder.getUser().getUsername());
+        BigDecimal total = new BigDecimal("4080.01");
+        assertEquals(0, total.compareTo(newOrder.getTotal()));
+    }
+
+    private List<UserOrder> generateTestOrderList() {
+        Cart cart = generateTestCart();
+        UserOrder order = UserOrder.createFromCart(cart);
+        order.setId(29L);
+
+        List<UserOrder> orderList = new ArrayList<>();
+        orderList.add(order);
+        return orderList;
+    }
     
 
     private Cart generateTestCart() {
