@@ -1,5 +1,7 @@
 package com.udacity.jwdnd.ecommerce.controllers;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +24,7 @@ public class UserController {
 	private final UserRepository userRepository;
 	private final CartRepository cartRepository;
 	private final BCryptPasswordEncoder bCryptPasswordEncoder;
+	private final Logger logger = LoggerFactory.getLogger(UserController.class);
 
 	public UserController(UserRepository userRepository, CartRepository cartRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
 		this.userRepository = userRepository;
@@ -49,10 +52,12 @@ public class UserController {
 		user.setCart(cart);
 		if(createUserRequest.getPassword().length() < 7
 		 		|| !createUserRequest.getPassword().equals(createUserRequest.getConfirmPassword())) {
+			logger.info("User creation failure - password check, username:{}", createUserRequest.getUsername());
 			return ResponseEntity.badRequest().build();
 		}
 		user.setPassword(bCryptPasswordEncoder.encode(createUserRequest.getPassword()));
 		userRepository.save(user);
+		logger.info("User creation success, username:{}", createUserRequest.getUsername());
 		return ResponseEntity.ok(user);
 	}
 	
