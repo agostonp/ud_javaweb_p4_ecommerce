@@ -36,6 +36,10 @@ public class OrderController {
 			logger.info("Order request failure - user not found, username:{}", username);
 			return ResponseEntity.notFound().build();
 		}
+		if(user.getCart() == null || user.getCart().getItems() == null || user.getCart().getItems().isEmpty()) {
+			logger.info("Order request failure - the cart is empty, username:{}", username);
+			return ResponseEntity.badRequest().build();
+		}
 		UserOrder order = UserOrder.createFromCart(user.getCart());
 		orderRepository.save(order);
 		logger.info("Order request success, username:{}, order id:{}", username, order.getId());
