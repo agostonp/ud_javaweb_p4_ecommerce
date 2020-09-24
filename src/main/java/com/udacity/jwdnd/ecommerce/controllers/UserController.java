@@ -2,6 +2,7 @@ package com.udacity.jwdnd.ecommerce.controllers;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,6 +46,12 @@ public class UserController {
 	
 	@PostMapping("/create")
 	public ResponseEntity<User> createUser(@RequestBody CreateUserRequest createUserRequest) {
+		if(createUserRequest.getUsername() == null || createUserRequest.getUsername().isEmpty()
+				|| userRepository.findByUsername(createUserRequest.getUsername()) != null) {
+			logger.info("User creation failure - username empty or already exists:{}", createUserRequest.getUsername());
+			return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+		}
+
 		User user = new User();
 		user.setUsername(createUserRequest.getUsername());
 		Cart cart = new Cart();
