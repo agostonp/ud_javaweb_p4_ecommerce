@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "408cb908-d30e-4502-8c9b-ec979bb8dcae",
-		"name": "Udacity JWDND P4 Ecommerce",
+		"name": "Udacity_JWDND_P4_Ecommerce",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -19,6 +19,68 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"username\": \"sanyi\",\r\n    \"password\": \"almaafa\",\r\n    \"confirmPassword\": \"almaafa\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"misi\",\r\n    \"password\": \"almaafa\",\r\n    \"confirmPassword\": \"almaafa\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User Fail",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"jani\",\r\n    \"password\": \"alma\",\r\n    \"confirmPassword\": \"alma\"\r\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8080/api/user/create",
@@ -76,7 +138,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzYW55aSIsImV4cCI6MTYwMDUyNDM0NH0.mMDd6rWVGepa6mM9g7BXypnxcMjHtA--fnGTbFHVx8pVVjpPkKsR08hQTZuQXp1q6T1ThG6S-fF5IAZlfmsH-w",
+							"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzYW55aSIsImV4cCI6MTYwMTQ3MjE3MH0.wPOKZlLJmsrZK0Qvghdxa3a00vbtgUuWmeJwPVupSIorv1R0yhEu5irNVItAqmQufSmzJ5CAlMV_uBmqcMQXIA",
 							"type": "string"
 						}
 					]
@@ -117,7 +179,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzYW55aSIsImV4cCI6MTYwMDUyNDM0NH0.mMDd6rWVGepa6mM9g7BXypnxcMjHtA--fnGTbFHVx8pVVjpPkKsR08hQTZuQXp1q6T1ThG6S-fF5IAZlfmsH-w",
+							"value": "{{JWTToken}}",
 							"type": "string"
 						}
 					]
@@ -158,7 +220,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzYW55aSIsImV4cCI6MTYwMDUyNDM0NH0.mMDd6rWVGepa6mM9g7BXypnxcMjHtA--fnGTbFHVx8pVVjpPkKsR08hQTZuQXp1q6T1ThG6S-fF5IAZlfmsH-w",
+							"value": "{{JWTToken}}",
 							"type": "string"
 						}
 					]
@@ -191,6 +253,97 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Submit Order Fail User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWTToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/order/submit/rezso",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"order",
+						"submit",
+						"rezso"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Submit Order Fail Empty Cart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{JWTToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/order/submit/misi",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"order",
+						"submit",
+						"misi"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"id": "dcea72fb-027d-4b47-9a13-2e50f583a6b2",
+			"key": "JWTToken",
+			"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzYW55aSIsImV4cCI6MTYwMTgwMjk3NX0.7UaVM2y_yO4CXtNUGDJsrPTeF1ONfytUJ74PUDLbN34I3SO0XFMl9iqobOdRtWUUaDoWf3PPGkMAbskRsHi5xA"
 		}
 	],
 	"protocolProfileBehavior": {}
