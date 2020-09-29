@@ -19,3 +19,8 @@ rm openjdk-14.0.2_linux-x64_bin.tar.gz
 #					<jvm>/opt/java/jdk-14.0.2/bin/java</jvm>
 #		        </configuration>
 #      		</plugin>
+
+# Jenkins Maven properties hack:
+# maven.compiler.fork=true
+# maven.compiler.executable=/opt/java/jdk-14.0.2/bin/javac
+
