@@ -1,0 +1,142 @@
+Started by user Admin
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/Udacity_JWDND_eCommerce
+The recommended git tool is: NONE
+using credential 054216ce-da2b-4440-890e-d2e2fc14ec1e
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url git@github.com:agostonp/ud_javaweb_p4_ecommerce.git # timeout=10
+Fetching upstream changes from git@github.com:agostonp/ud_javaweb_p4_ecommerce.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.26.2'
+using GIT_SSH to set credentials GitHub connection
+ > git fetch --tags --force --progress -- git@github.com:agostonp/ud_javaweb_p4_ecommerce.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Checking out Revision fa403a745f08559060a0bf36663de5d279667892 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f fa403a745f08559060a0bf36663de5d279667892 # timeout=10
+Commit message: "Make Maven tests run on the right Java version in the Jenkins Docker file :("
+ > git rev-list --no-walk fa403a745f08559060a0bf36663de5d279667892 # timeout=10
+[Udacity_JWDND_eCommerce] $ mvn -f pom.xml -Dmaven.compiler.fork=true -Dmaven.compiler.executable=/opt/java/jdk-14.0.2/bin/javac clean package
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< com.udacity.jwdnd:c4-auth-course >------------------
+[INFO] Building c4-auth-course 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/3.1.0/maven-clean-plugin-3.1.0.pom
+Progress (1): 2.7/5.2 kBProgress (1): 5.2 kB                        Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/3.1.0/maven-clean-plugin-3.1.0.pom (5.2 kB at 7.8 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/3.1.0/maven-clean-plugin-3.1.0.jar
+Progress (1): 2.7/30 kBProgress (1): 5.5/30 kBProgress (1): 8.2/30 kBProgress (1): 11/30 kB Progress (1): 14/30 kBProgress (1): 16/30 kBProgress (1): 19/30 kBProgress (1): 22/30 kBProgress (1): 25/30 kBProgress (1): 27/30 kBProgress (1): 30/30 kBProgress (1): 30 kB                      Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/3.1.0/maven-clean-plugin-3.1.0.jar (30 kB at 663 kB/s)
+[INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ c4-auth-course ---
+[INFO] Deleting /var/jenkins_home/workspace/Udacity_JWDND_eCommerce/target
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ c4-auth-course ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ c4-auth-course ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 20 source files to /var/jenkins_home/workspace/Udacity_JWDND_eCommerce/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ c4-auth-course ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /var/jenkins_home/workspace/Udacity_JWDND_eCommerce/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ c4-auth-course ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to /var/jenkins_home/workspace/Udacity_JWDND_eCommerce/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ c4-auth-course ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.udacity.jwdnd.ecommerce.controllers.OrderControllerTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.3.3.RELEASE)
+
+2020-09-29T20:51:35,368 INFO  [main] o.s.b.StartupInfoLogger: Starting OrderControllerTest on 1d59e5818a8a with PID 2970 (started by root in /var/jenkins_home/workspace/Udacity_JWDND_eCommerce)
+2020-09-29T20:51:35,382 INFO  [main] o.s.b.SpringApplication: No active profile set, falling back to default profiles: default
+2020-09-29T20:51:36,873 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-09-29T20:51:37,061 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 163ms. Found 4 JPA repository interfaces.
+2020-09-29T20:51:38,309 INFO  [main] o.s.s.c.ExecutorConfigurationSupport: Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-29T20:51:38,658 INFO  [task-1] o.h.j.i.u.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-09-29T20:51:38,838 INFO  [task-1] o.h.Version: HHH000412: Hibernate ORM core version 5.4.20.Final
+2020-09-29T20:51:38,839 WARN  [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration: spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-09-29T20:51:39,302 INFO  [task-1] o.h.a.c.r.j.JavaReflectionManager: HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-09-29T20:51:39,733 INFO  [task-1] c.z.h.HikariDataSource: HikariPool-1 - Starting...
+2020-09-29T20:51:39,971 INFO  [main] o.s.s.w.DefaultSecurityFilterChain: Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@49cb3881, org.springframework.security.web.context.SecurityContextPersistenceFilter@18e4674d, org.springframework.security.web.header.HeaderWriterFilter@691541bc, org.springframework.web.filter.CorsFilter@1a14fdf0, org.springframework.security.web.authentication.logout.LogoutFilter@58aa1d72, com.udacity.jwdnd.ecommerce.security.JWTAuthenticationFilter@284bdeed, com.udacity.jwdnd.ecommerce.security.JWTAuthorizationFilter@58b311ba, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@280fafd, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4b957db0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@482c351d, org.springframework.security.web.session.SessionManagementFilter@764fffa0, org.springframework.security.web.access.ExceptionTranslationFilter@784d9bc, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@411fa0ce]
+2020-09-29T20:51:40,425 INFO  [task-1] c.z.h.HikariDataSource: HikariPool-1 - Start completed.
+2020-09-29T20:51:40,499 INFO  [task-1] o.h.d.Dialect: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-09-29T20:51:42,084 INFO  [main] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2'. Database available at 'jdbc:h2:mem:bootapp'
+2020-09-29T20:51:43,057 INFO  [task-1] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-09-29T20:51:43,104 INFO  [task-1] o.s.o.j.AbstractEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-09-29T20:51:43,137 INFO  [main] o.s.d.r.c.DeferredRepositoryInitializationListener: Triggering deferred initialization of Spring Data repositories…
+2020-09-29T20:51:44,104 INFO  [main] o.s.d.r.c.DeferredRepositoryInitializationListener: Spring Data repositories initialized!
+2020-09-29T20:51:44,148 INFO  [main] o.s.b.StartupInfoLogger: Started OrderControllerTest in 9.548 seconds (JVM running for 12.558)
+2020-09-29T20:51:44,933 INFO  [main] c.u.j.e.c.OrderController: Order request success, username:spiderman, order id:null
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.995 s - in com.udacity.jwdnd.ecommerce.controllers.OrderControllerTest
+[INFO] Running com.udacity.jwdnd.ecommerce.controllers.CartControllerTest
+2020-09-29T20:51:45,078 INFO  [main] o.s.t.c.s.AbstractTestContextBootstrapper: Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.udacity.jwdnd.ecommerce.controllers.CartControllerTest], using SpringBootContextLoader
+2020-09-29T20:51:45,099 INFO  [main] o.s.t.c.s.AbstractContextLoader: Could not detect default resource locations for test class [com.udacity.jwdnd.ecommerce.controllers.CartControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2020-09-29T20:51:45,103 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils: Could not detect default configuration classes for test class [com.udacity.jwdnd.ecommerce.controllers.CartControllerTest]: CartControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2020-09-29T20:51:45,115 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper: Found @SpringBootConfiguration com.udacity.jwdnd.ecommerce.ECommerceApplication for test class com.udacity.jwdnd.ecommerce.controllers.CartControllerTest
+2020-09-29T20:51:45,127 INFO  [main] o.s.t.c.s.AbstractTestContextBootstrapper: Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener]
+2020-09-29T20:51:45,133 INFO  [main] o.s.t.c.s.AbstractTestContextBootstrapper: Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5790cbcb, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@32c6d164, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@645c9f0f, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@58068b40, org.springframework.test.context.support.DirtiesContextTestExecutionListener@999cd18, org.springframework.test.context.transaction.TransactionalTestExecutionListener@dd060be, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@df432ec, org.springframework.test.context.event.EventPublishingTestExecutionListener@6144e499, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@26f204a4, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@28295554, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@4e671ef, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@42403dc6, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@74a1d60e, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@16c0be3b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@219edc05, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@62f37bfd]
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.249 s - in com.udacity.jwdnd.ecommerce.controllers.CartControllerTest
+[INFO] Running com.udacity.jwdnd.ecommerce.controllers.ItemControllerTest
+2020-09-29T20:51:45,402 INFO  [main] o.s.t.c.s.AbstractTestContextBootstrapper: Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.udacity.jwdnd.ecommerce.controllers.ItemControllerTest], using SpringBootContextLoader
+2020-09-29T20:51:45,416 INFO  [main] o.s.t.c.s.AbstractContextLoader: Could not detect default resource locations for test class [com.udacity.jwdnd.ecommerce.controllers.ItemControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2020-09-29T20:51:45,417 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils: Could not detect default configuration classes for test class [com.udacity.jwdnd.ecommerce.controllers.ItemControllerTest]: ItemControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2020-09-29T20:51:45,421 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper: Found @SpringBootConfiguration com.udacity.jwdnd.ecommerce.ECommerceApplication for test class com.udacity.jwdnd.ecommerce.controllers.ItemControllerTest
+2020-09-29T20:51:45,425 INFO  [main] o.s.t.c.s.AbstractTestContextBootstrapper: Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener]
+2020-09-29T20:51:45,435 INFO  [main] o.s.t.c.s.AbstractTestContextBootstrapper: Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5fa9247b, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@21ce3b22, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@7cd25bf5, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@e2f6e13, org.springframework.test.context.support.DirtiesContextTestExecutionListener@18b30951, org.springframework.test.context.transaction.TransactionalTestExecutionListener@48f4264e, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2697c156, org.springframework.test.context.event.EventPublishingTestExecutionListener@533d7c61, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@53c40ed6, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@3a6b94b6, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@22ee7fdc, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@1a88d194, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6949cead, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@fe13916, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@5ea0a7a9, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@278c998]
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.161 s - in com.udacity.jwdnd.ecommerce.controllers.ItemControllerTest
+[INFO] Running com.udacity.jwdnd.ecommerce.controllers.UserControllerTest
+2020-09-29T20:51:45,562 INFO  [main] o.s.t.c.s.AbstractTestContextBootstrapper: Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.udacity.jwdnd.ecommerce.controllers.UserControllerTest], using SpringBootContextLoader
+2020-09-29T20:51:45,579 INFO  [main] o.s.t.c.s.AbstractContextLoader: Could not detect default resource locations for test class [com.udacity.jwdnd.ecommerce.controllers.UserControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2020-09-29T20:51:45,579 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils: Could not detect default configuration classes for test class [com.udacity.jwdnd.ecommerce.controllers.UserControllerTest]: UserControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2020-09-29T20:51:45,619 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper: Found @SpringBootConfiguration com.udacity.jwdnd.ecommerce.ECommerceApplication for test class com.udacity.jwdnd.ecommerce.controllers.UserControllerTest
+2020-09-29T20:51:45,629 INFO  [main] o.s.t.c.s.AbstractTestContextBootstrapper: Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener]
+2020-09-29T20:51:45,633 INFO  [main] o.s.t.c.s.AbstractTestContextBootstrapper: Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@780a91d0, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3cfab340, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@3387ab0, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@470f0637, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6b278b17, org.springframework.test.context.transaction.TransactionalTestExecutionListener@2ae5580, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@4203529f, org.springframework.test.context.event.EventPublishingTestExecutionListener@7d82ca56, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@2aaa89c2, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@5a58db42, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@217fd3c, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@69ac5752, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@1736273c, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@ba86c53, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@36eb8e07, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@3df6494f]
+2020-09-29T20:51:45,717 INFO  [main] c.u.j.e.c.UserController: User creation failure - password check, username:Beni
+2020-09-29T20:51:45,741 INFO  [main] c.u.j.e.c.UserController: User creation success, username:Beni
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.171 s - in com.udacity.jwdnd.ecommerce.controllers.UserControllerTest
+[INFO] Running com.udacity.jwdnd.ecommerce.ECommerceApplicationTests
+2020-09-29T20:51:45,750 INFO  [main] o.s.t.c.s.AbstractTestContextBootstrapper: Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.udacity.jwdnd.ecommerce.ECommerceApplicationTests], using SpringBootContextLoader
+2020-09-29T20:51:45,766 INFO  [main] o.s.t.c.s.AbstractContextLoader: Could not detect default resource locations for test class [com.udacity.jwdnd.ecommerce.ECommerceApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+2020-09-29T20:51:45,766 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils: Could not detect default configuration classes for test class [com.udacity.jwdnd.ecommerce.ECommerceApplicationTests]: ECommerceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2020-09-29T20:51:45,782 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper: Found @SpringBootConfiguration com.udacity.jwdnd.ecommerce.ECommerceApplication for test class com.udacity.jwdnd.ecommerce.ECommerceApplicationTests
+2020-09-29T20:51:45,784 INFO  [main] o.s.t.c.s.AbstractTestContextBootstrapper: Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener]
+2020-09-29T20:51:45,791 INFO  [main] o.s.t.c.s.AbstractTestContextBootstrapper: Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@32d8710a, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@180cc0df, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@64f33dee, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@61c58320, org.springframework.test.context.support.DirtiesContextTestExecutionListener@10e4ee33, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6e90cec8, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@13f182b9, org.springframework.test.context.event.EventPublishingTestExecutionListener@5ee0cf64, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@69c227fd, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@14c5283, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@1eb7ec59, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@46748b04, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@3e71a1f8, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@5d4a34ff, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@7cbede2b, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@1ef04613]
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.06 s - in com.udacity.jwdnd.ecommerce.ECommerceApplicationTests
+2020-09-29T20:51:45,901 INFO  [SpringContextShutdownHook] o.s.o.j.AbstractEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-09-29T20:51:45,924 INFO  [SpringContextShutdownHook] o.s.s.c.ExecutorConfigurationSupport: Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-29T20:51:45,940 INFO  [SpringContextShutdownHook] c.z.h.HikariDataSource: HikariPool-1 - Shutdown initiated...
+2020-09-29T20:51:45,979 INFO  [SpringContextShutdownHook] c.z.h.HikariDataSource: HikariPool-1 - Shutdown completed.
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- maven-jar-plugin:3.2.0:jar (default-jar) @ c4-auth-course ---
+[INFO] Building jar: /var/jenkins_home/workspace/Udacity_JWDND_eCommerce/target/c4-auth-course-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:2.3.3.RELEASE:repackage (repackage) @ c4-auth-course ---
+[INFO] Replacing main artifact with repackaged archive
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  31.436 s
+[INFO] Finished at: 2020-09-29T20:51:48Z
+[INFO] ------------------------------------------------------------------------
+Finished: SUCCESS
